@@ -1,92 +1,132 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title></title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="index.css">
+ <title></title>
+ <link rel="stylesheet" type="text/css" href="style.css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 </head>
-
 <body>
 
-    <header class="site-header clearfix">
-        <nav>
-            <div class="logo">
-                <h1>Modern Website</h1>
-            </div>
-            <div class="menu">
-                <ul>
-                    <li>Home</li>
-                    <li>Services</li>
-                    <li>AboutUs</li>
-                    <li>ContactUs</li>
-                </ul>
-            </div>
-        </nav>
-        <section>
-            <div class="leftside">
-                <div class="slideshow-container">
+<header class="site-header clearfix">
+ <nav>
+  <div class="logo">
+   <h1>Modern Website</h1>
+  </div>
+  <div class="menu"> 
+   <ul>
+    <li>Home</li>
+    <li>Services</li>
+    <li>AboutUs</li>
+    <li>ContactUs</li>
+   </ul>
+  </div>
+ </nav>
+ <section>
+  <div class="leftside"> 
+    <div class="img-slider">
+      <div class="slide active">
+        <img src="webpage img\tajmahal.jpg" alt="The Taj Mahal">
+        <div class="info">
+          <h3>The Taj Mahal, Agra</h3>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="webpage img\Statueofunity.jpg" alt="Statue of Unity">
+        <div class="info">
+          <h3>Statue of Unity</h3>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="webpage img\The-Golden-Temple-Amritsar.jpg" alt="The Golden Temple">
+        <div class="info">
+          <h3>The Golden Temple</h3>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="webpage img\goa.jpg" alt="GOA">
+        <div class="info">
+         <h3>Goa</h3>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="webpage img\vanarash.jpg" alt="vanarash">
+        <div class="info">
+          <h3>Vanarash</h3>
+        </div>
+      </div>
+      <div class="navigation">
+        <div class="btn active"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+      </div>
+    </div>
+  </div>
+  <div class="rightside"> 
+   <h1>Our Modern Website</h1>
+   <p>Click the Button and know about famous place 
+   </p>
+   <button>Welcome</button>
+  </div>
+  
+ </section>
 
-                    <div class="mySlides fade">
-                      <div class="numbertext">1 / 3</div>
-                      <img src="SOMNATH.jpg" style="width:100%">
-                      <div class="text">Caption Text</div>
-                    </div>
-                    
-                    <div class="mySlides fade">
-                      <div class="numbertext">2 / 3</div>
-                      <img src="SOMNATH.jpg" style="width:100%">
-                      <div class="text">Caption Two</div>
-                    </div>
-                    
-                    <div class="mySlides fade">
-                      <div class="numbertext">3 / 3</div>
-                      <img src="SOMNATH.jpg" style="width:100%">
-                      <div class="text">Caption Three</div>
-                    </div>
-                    
-                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                    
-                    </div>
-                    <br>
-                    
-                    <div style="text-align:center">
-                      <span class="dot" onclick="currentSlide(1)"></span> 
-                      <span class="dot" onclick="currentSlide(2)"></span> 
-                      <span class="dot" onclick="currentSlide(3)"></span> 
-                    </div>
-                    
-            </div>
-            <div class="rightside">
-                <h1>Famous Place</h1>
-                <p>Visit all the famous places</p>
-                <button>Welcome</button>
-            </div>
+</header>
+<script type="text/javascript">
+  var slides = document.querySelectorAll('.slide');
+  var btns = document.querySelectorAll('.btn');
+  let currentSlide = 1;
 
-        </section>
+  // Javascript for image slider manual navigation
+  var manualNav = function(manual){
+    slides.forEach((slide) => {
+      slide.classList.remove('active');
 
-    </header>
-    <script>
+      btns.forEach((btn) => {
+        btn.classList.remove('active');
+      });
+    });
 
-        var slideIndex = 0;
-        showSlides();
-        
-        function showSlides() {
-          var i;
-          var slides = document.getElementsByClassName("mySlides");
-          for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-          }
-          slideIndex++;
-          if (slideIndex > slides.length) {slideIndex = 1}
-          slides[slideIndex-1].style.display = "block";
-          setTimeout(showSlides, 6000); // Change image every 2 seconds
-        }
-    </script>
+    slides[manual].classList.add('active');
+    btns[manual].classList.add('active');
+  }
+
+  btns.forEach((btn, i) => {
+    btn.addEventListener("click", () => {
+      manualNav(i);
+      currentSlide = i;
+    });
+  });
+
+  // Javascript for image slider autoplay navigation
+  var repeat = function(activeClass){
+    let active = document.getElementsByClassName('active');
+    let i = 1;
+
+    var repeater = () => {
+      setTimeout(function(){
+        [...active].forEach((activeSlide) => {
+          activeSlide.classList.remove('active');
+        });
+
+      slides[i].classList.add('active');
+      btns[i].classList.add('active');
+      i++;
+
+      if(slides.length == i){
+        i = 0;
+      }
+      if(i >= slides.length){
+        return;
+      }
+      repeater();
+    }, 10000);
+    }
+    repeater();
+  }
+  repeat();
+  </script>
 
 </body>
-
 </html>
