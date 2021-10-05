@@ -15,7 +15,7 @@ body{
   height: 100vh;
   background: #0f8a9d;
   background: linear-gradient(57deg, #00C6A7 , #1E4D92 ); 
-  clip-path: polygon(0% 0%, 100% 0%, 100% 98%, 0% 100%);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 96%, 0% 100%);
 
 }
 
@@ -68,7 +68,7 @@ section{ display: flex; }
 
 .leftside { width: 65%; height: auto; overflow: hidden; margin-left: 1px; border: cornsilk; border-radius: 10px;}
 
-.leftside img{  width: 920px;  height: 570px; }
+.leftside img{  width: 920px;  height: 500px; }
 
 /* rightside text and button */
 
@@ -99,8 +99,8 @@ section{ display: flex; }
 }
 .img-slider{
   position: relative;
-  width: 910px;
-  height: 570px;
+  width: 930px;
+  height: 500px;
   background: #1D212B;
 }
 
@@ -143,7 +143,7 @@ section{ display: flex; }
   position: absolute;
   display: flex;
   bottom: 30px;
-  left: 50%;
+  left: 44%;
   transform: translateX(-50%);
 }
 
@@ -237,6 +237,7 @@ section{ display: flex; }
 
   .img-slider .navigation{
     bottom: 10px;
+    left: 20px;
   }
 }
    
