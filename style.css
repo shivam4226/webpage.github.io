@@ -212,7 +212,9 @@ section{ display: flex; }
   .img-slider .navigation .btn{
     width: 8px;
     height: 8px;
-    margin: 6px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    margin-left: 6px;
   }
 }
 
