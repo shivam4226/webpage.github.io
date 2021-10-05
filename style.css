@@ -207,7 +207,6 @@ section{ display: flex; }
 
   .img-slider .navigation{
     bottom: 15px;
-    left:20px;
   }
 
   .img-slider .navigation .btn{
