@@ -121,6 +121,9 @@ section{ display: flex; }
   z-index: 1;
   width: 100%;
   border-radius: 5px;
+  object-fit : fill;
+  
+  
 }
 
 .img-slider .slide .info{
